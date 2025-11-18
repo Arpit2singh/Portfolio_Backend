@@ -15,7 +15,7 @@ app.use(cookieParser()) ;
 
 app.use(express.urlencoded({extended : true  , limit : "16kb"})) ; 
 app.use(express.json({limit : "16kb"})) 
-app.use(UserInfo)
+// app.use(UserInfo)
 // app.use(visitedUser)
 
 app.use("/portfolio" , router) ;

@@ -123,7 +123,7 @@ const UserInfo = asyncHandler(async (req, res, next) => {
 
 
 
-        next()
+      return  next()
 
     } catch (error) {
         throw new ApiError(401, "cannot get teh information from thte user")
