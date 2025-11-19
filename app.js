@@ -8,7 +8,7 @@ import UserInfo from "./src/middleware/userinfo.middleware.js";
 const app = express() ;
  app.set("trust proxy", true);
 app.use(cors({
-    origin : process.env.CORS_ORIGIN ,
+    origin : "https://arpit-portfolio-three.vercel.app/" ,
     credentials : true ,
 }))
 const startTime  = Date.now()  ; 
