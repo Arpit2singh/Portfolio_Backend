@@ -28,7 +28,9 @@ const UserInfo = asyncHandler(async (req, res, next) => {
 
         const options ={
             httpOnly : true , 
-            maxAge : 1000 * 60 * 60 * 24 * 365 
+            maxAge : 1000 * 60 * 60 * 24 * 365 ,
+            sameSite : "none" , 
+            secure : true
         }
 
         res.cookie("visitorId" , visitorId , options) ;
@@ -95,9 +97,7 @@ const UserInfo = asyncHandler(async (req, res, next) => {
             if(!userDataCheck){
                 throw new ApiError(401 , "UserData not created") ; 
             }
-            else{
-                return res.json(new ApiResponse(201, "User created successfully"));
-            }
+           
 
         }
         else{
@@ -111,14 +111,7 @@ const UserInfo = asyncHandler(async (req, res, next) => {
             if(!userAgainVisited){
                 throw new ApiError(401 , "user Again visited changes Failed" )
             }
-            else{
-                 return res.json(
-                new ApiResponse(
-                    200,
-                    "User visit count updated successfully"
-                )
-            );
-            }
+         
         }
 
 
